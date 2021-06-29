@@ -3,21 +3,21 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Carbon\Carbon;
-use App\Book;
+use App\Models\Book;
 
-class booksTableSeeder extends Seeder
+class BooksTableSeeder extends Seeder
 {
     /**
-    *  Run the database seeds.
-    *
-    *  @return void
-    */
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
         $faker = Faker::create();
         for ($i=0; $i <= 10 ; $i++)
         {
-            App\Book::insert([
+            Book::insert([
                 'title' => $faker->sentence,
                 'writer' => $faker->name,
                 'summary' => $faker->text,
