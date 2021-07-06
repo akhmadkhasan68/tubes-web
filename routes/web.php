@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +14,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware'], function(){
+    Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('book', 'BookProductController');
+    Route::resource('jenis', 'JenisController');
+    Route::resource('identitas', 'IdentitasController');
+});
+
